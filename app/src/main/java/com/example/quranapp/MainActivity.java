@@ -15,6 +15,8 @@ import android.widget.Toast;
 import com.google.android.material.navigation.NavigationBarItemView;
 import com.google.android.material.navigation.NavigationView;
 
+import java.io.IOException;
+
 public class MainActivity extends AppCompatActivity {
     DBHelper db;
     DrawerLayout drawerLayout;
@@ -45,9 +47,9 @@ public class MainActivity extends AppCompatActivity {
         navigationView=findViewById(R.id.nav_view);
         drawerLayout=findViewById(R.id.drawer_Layout);
 
-        db = new DBHelper(this,"quran_database");
-        db.CheckDatabase();
-        db.OpenDatabase();
+
+        DBHelper db = new DBHelper(getApplicationContext());
+
 
 
 

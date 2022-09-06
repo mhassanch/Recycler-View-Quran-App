@@ -14,7 +14,7 @@ public class surahList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_surah_list);
         ListView surahListView = findViewById(R.id.surahList);
-        DBHelper dbHelper  = new DBHelper(surahList.this,"quran_database");
+        DBHelper dbHelper  = new DBHelper(surahList.this);
         ArrayList<surahModel>  s =  dbHelper.getAllSurahs();
         surahAdapter adapter = new surahAdapter(this, s);
 

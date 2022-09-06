@@ -1,106 +1,97 @@
 package com.example.quranapp;
 
+
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-
-import androidx.annotation.Nullable;
+import android.util.Log;
+import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
+import android.widget.Toast;
 
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 
-public class DBHelper extends SQLiteOpenHelper {
-    String DbName;
-    String DbPath;
-    Context context;
 
-    public DBHelper(@Nullable Context context,String name) {
-        super(context, "quran_database", null, 1);
+public class DBHelper extends SQLiteAssetHelper {
+    private static String DbName = "databases/quran_database.db";
+    private static String DbPath = "/data/data/com.example.quranapp/databases/";
+    private Context context;
+    private SQLiteDatabase aDB;
 
-        this.context = context;
-        DbName = "quran_database.db";
-        DbPath = "/data/data/" + context.getPackageName() +"/databases/";
-    }
 
+    public DBHelper(Context c){
+        super(c,DbName,null,4);
+        this.context = c;
+    }/*
     @Override
-    public void onCreate(SQLiteDatabase db) {
-        CheckDatabase();
+    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        createDatabase();
     }
-
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        db.execSQL("DROP TABLE IF EXISTS tsurah");
+        onCreate(db);
     }
+*/
+    public void createDatabase(){
+        try {
+            // Open your local db as the input stream
 
-    public void CheckDatabase(){
-        try{
-            String path = DbPath + DbName;
-            SQLiteDatabase.openDatabase(path,null,0);
-        }catch (Exception e){
-            this.getReadableDatabase();
-            CopyDatabase();
-        }
-    }
 
-    public void CopyDatabase(){
-        try{
-            InputStream io = context.getAssets().open(DbName);
-            String outfilenme = DbPath + DbName;
-            OutputStream outputStream = new FileOutputStream(outfilenme);
-            int length;
+            InputStream myInput = context.getAssets().open("databases/quran_database.db");
+
+
+
+            // Path to the just created empty db
+            String outFileName = "/data/data/com.example.quranapp/databases/";
+            //String outFileName = Context.getFilesDir().getPath();
+            OutputStream myOutput = new FileOutputStream(outFileName);
+
+            // transfer bytes from the inputfile to the outputfile
             byte[] buffer = new byte[1024];
-            while ((length = io.read(buffer)) > 0){
-                outputStream.write(buffer,length,0);
+            int length;
+            while ((length = myInput.read(buffer)) > 0) {
+                myOutput.write(buffer, 0, length);
             }
-            io.close();
-            outputStream.flush();
-            outputStream.close();
-        }catch(Exception e){}
-    }
 
-    public void OpenDatabase(){
-        String path = DbPath + DbName;
-        SQLiteDatabase.openDatabase(path,null,0);
-    }
+            // Close the streams
+            myOutput.flush();
+            myOutput.close();
+            myInput.close();
 
-    public ArrayList<ayatModel> getSurah(int sID){
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursorCourses = db.rawQuery("SELECT * FROM tayah where SuraID = "+ sID , null);
-        ArrayList<ayatModel> ayatList = new ArrayList<>();
+        } catch (Exception e) {
 
-        // moving our cursor to first position.
-        if (cursorCourses.moveToFirst()) {
-            do {
-
-                ayatList.add(new ayatModel(cursorCourses.getInt(0), cursorCourses.getInt(1),cursorCourses.getInt(2),cursorCourses.getString(3),cursorCourses.getString(4),cursorCourses.getString(5),cursorCourses.getString(6),cursorCourses.getString(7),cursorCourses.getInt(8),cursorCourses.getInt(9),cursorCourses.getInt(10)));
-            } while (cursorCourses.moveToNext());
+            Log.e("db cannot copy", e.toString());
 
         }
-
-        cursorCourses.close();
-        return ayatList;
     }
 
     public ArrayList<surahModel> getAllSurahs(){
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursorCourses = db.rawQuery("SELECT * FROM tsurah " , null);
-        ArrayList<surahModel> surahList = new ArrayList<>();
+        ArrayList<surahModel> surah = new ArrayList<>();
+        try{
+            SQLiteDatabase db = this.getReadableDatabase();
+            Cursor cursor = db.rawQuery("SELECT * FROM tsurah",null);
 
-        // moving our cursor to first position.
-        if (cursorCourses.moveToFirst()) {
-            do {
+            //db.rawQuery("SELECT name FROM sqlite_master WHERE type='table' AND name='tsurah';",null);
+            // moving our cursor to first position.
+            if (cursor.moveToFirst()) {
+                do {
 
-                surahList.add(new surahModel(cursorCourses.getInt(0),cursorCourses.getString(1),cursorCourses.getString(2),cursorCourses.getString(3),cursorCourses.getString(4)));
-            } while (cursorCourses.moveToNext());
+                    surah.add(new surahModel(cursor.getInt(1), cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5) ));
+                } while (cursor.moveToNext());
 
+            }
+
+            cursor.close();
+        }
+        catch (Exception e){
+            Toast.makeText(context,"table not access",Toast.LENGTH_LONG).show();
         }
 
-        cursorCourses.close();
-        return surahList;
-    }
 
+        return surah;
+    }
 }
