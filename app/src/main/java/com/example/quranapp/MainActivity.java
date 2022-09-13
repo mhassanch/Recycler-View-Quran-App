@@ -61,30 +61,39 @@ public class MainActivity extends AppCompatActivity {
                 switch (menuItem.getItemId())
                 {
                     case R.id.nav_home:
-                        Toast.makeText(getApplicationContext(),"Retur is Clicked",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Home Clicked",Toast.LENGTH_LONG).show();
+                        //drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+
+                    case R.id.nav_surah:
+                        Toast.makeText(getApplicationContext(),"Surah Information Clicked",Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(MainActivity.this, surahList.class);
                         startActivity(intent);
                         //drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
-                    case R.id.nav_surah:
-                        Toast.makeText(getApplicationContext(),"Retur is Clicked",Toast.LENGTH_LONG).show();
-                        //drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-
-                    case R.id.nav_parah :
-                        Toast.makeText(getApplicationContext(),"Laptop is clicked",Toast.LENGTH_LONG).show();
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-
                     case R.id.nav_fmj :
-                        Toast.makeText(getApplicationContext(),"Voice is clicked",Toast.LENGTH_LONG).show();
-                        drawerLayout.closeDrawer(GravityCompat.START);
+                        Intent trans1 = new Intent(MainActivity.this, translationMain.class);
+                        trans1.putExtra("translationId", 1);
+                        startActivity(trans1);
                         break;
 
                     case R.id.nav_mh :
-                        Toast.makeText(getApplicationContext(),"Chrome Reader is clicked",Toast.LENGTH_LONG).show();
-                        drawerLayout.closeDrawer(GravityCompat.START);
+                        Intent trans2 = new Intent(MainActivity.this, translationMain.class);
+                        trans2.putExtra("translationId", 2);
+                        startActivity(trans2);
+                        break;
+
+                    case R.id.nav_dmk :
+                        Intent trans3 = new Intent(MainActivity.this, translationMain.class);
+                        trans3.putExtra("translationId", 3);
+                        startActivity(trans3);
+                        break;
+
+                    case R.id.nav_mtu:
+                        Intent trans4 = new Intent(MainActivity.this, translationMain.class);
+                        trans4.putExtra("translationId", 4);
+                        startActivity(trans4);
                         break;
                 }
 

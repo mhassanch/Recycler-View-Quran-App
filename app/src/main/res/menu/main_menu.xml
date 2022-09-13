@@ -15,9 +15,7 @@
                 android:id="@id/nav_surah"
                 android:title="@string/by_surah"/>
 
-            <item
-                android:id="@id/nav_parah"
-                android:title="@string/by_parah"/>
+
         </menu>
     </item>
 

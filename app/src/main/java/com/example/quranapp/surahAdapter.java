@@ -2,6 +2,7 @@ package com.example.quranapp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,14 +11,17 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class surahAdapter extends ArrayAdapter {
     private final android.app.Activity Context;
     private ArrayList<surahModel> surahs;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public surahAdapter(Activity context, ArrayList<surahModel> s) {
         super(context,R.layout.surahlistitem,s);
         Context = context;
@@ -64,7 +68,7 @@ public class surahAdapter extends ArrayAdapter {
         TextView sIntro = Single.findViewById(R.id.surahIntro);
         sE.setText(surahs.get(position).SurahNameE);
         sU.setText(surahs.get(position).SurahNameU);
-        sNo.setText(surahs.get(position).SurahID);
+        sNo.setText(String.valueOf(surahs.get(position).SurahID));
         sNazool.setText(surahs.get(position).Nazool);
         sIntro.setText(surahs.get(position).SurahIntro);
 

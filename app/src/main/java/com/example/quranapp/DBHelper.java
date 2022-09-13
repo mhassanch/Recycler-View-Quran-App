@@ -183,11 +183,13 @@ public class DBHelper extends SQLiteAssetHelper {
         ArrayList<surahModel> surah = new ArrayList<surahModel>();
         if (cursor.moveToFirst()) {
             do {
-                surahModel s = new surahModel(cursor.getInt(1),cursor.getString(2), cursor.getString(3),cursor.getString(4),cursor.getString(5) );
+                surahModel s = new surahModel(cursor.getInt(0),cursor.getString(1), cursor.getString(2),cursor.getString(3),cursor.getString(4) );
                 i++;
+                surah.add(s);
             } while (cursor.moveToNext());
         }
         cursor.close();
         return surah;
     }
+
 }
