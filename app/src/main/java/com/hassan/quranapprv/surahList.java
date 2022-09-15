@@ -1,5 +1,6 @@
 package com.hassan.quranapprv;
 
+
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.ListView;
