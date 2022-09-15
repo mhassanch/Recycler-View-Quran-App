@@ -5,18 +5,19 @@
       <map>
         <entry key="..\:/Users/hassa/AndroidStudioProjects/QuranApp/app/src/main/res/layout/activity_main.xml" value="0.31521739130434784" />
         <entry key="..\:/Users/hassa/OneDrive/Documents/QuranApp/QuranApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2985" />
+        <entry key="..\:/Users/hassa/OneDrive/Documents/QuranApp/QuranApp/app/src/main/res/drawable/background1.xml" value="0.242" />
         <entry key="..\:/Users/hassa/OneDrive/Documents/QuranApp/QuranApp/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.2985" />
         <entry key="..\:/Users/hassa/OneDrive/Documents/QuranApp/QuranApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2985" />
         <entry key="..\:/Users/hassa/OneDrive/Documents/QuranApp/QuranApp/app/src/main/res/drawable/surahitem.xml" value="0.2985" />
         <entry key="..\:/Users/hassa/OneDrive/Documents/QuranApp/QuranApp/app/src/main/res/drawable/white_button_bg.xml" value="0.2985" />
         <entry key="..\:/Users/hassa/OneDrive/Documents/QuranApp/QuranApp/app/src/main/res/layout/activity_main.xml" value="0.31521739130434784" />
         <entry key="..\:/Users/hassa/OneDrive/Documents/QuranApp/QuranApp/app/src/main/res/layout/activity_surah_list.xml" value="0.307518115942029" />
-        <entry key="..\:/Users/hassa/OneDrive/Documents/QuranApp/QuranApp/app/src/main/res/layout/activity_translation_main.xml" value="0.33" />
+        <entry key="..\:/Users/hassa/OneDrive/Documents/QuranApp/QuranApp/app/src/main/res/layout/activity_translation_main.xml" value="0.40022740193291645" />
         <entry key="..\:/Users/hassa/OneDrive/Documents/QuranApp/QuranApp/app/src/main/res/layout/activity_translation_page.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/hassa/OneDrive/Documents/QuranApp/QuranApp/app/src/main/res/layout/ayat_single.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/hassa/OneDrive/Documents/QuranApp/QuranApp/app/src/main/res/layout/header.xml" value="0.30085470085470084" />
         <entry key="..\:/Users/hassa/OneDrive/Documents/QuranApp/QuranApp/app/src/main/res/layout/surahlistitem.xml" value="0.33" />
-        <entry key="..\:/Users/hassa/OneDrive/Documents/QuranApp/QuranApp/app/src/main/res/layout/surahname.xml" value="0.67" />
+        <entry key="..\:/Users/hassa/OneDrive/Documents/QuranApp/QuranApp/app/src/main/res/layout/surahname.xml" value="0.6767772511848341" />
         <entry key="..\:/Users/hassa/OneDrive/Documents/QuranApp/QuranApp/app/src/main/res/menu/main_menu.xml" value="0.36666666666666664" />
       </map>
     </option>

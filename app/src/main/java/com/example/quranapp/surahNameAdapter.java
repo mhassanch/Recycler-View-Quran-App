@@ -26,7 +26,11 @@ public class surahNameAdapter extends ArrayAdapter {
         LayoutInflater inflator = Context.getLayoutInflater();
         View Single = inflator.inflate(R.layout.surahname,null,true);
         TextView v =Single.findViewById(R.id.sNameT);
+        TextView v1 = Single.findViewById(R.id.sIDT);
+        TextView v2 = Single.findViewById(R.id.sNameET);
         v.setText(surrahNames.get(position).getSurahNameU());
+        v1.setText(String.valueOf(surrahNames.get(position).getSurahID()));
+        v2.setText(surrahNames.get(position).getSurahNameE());
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
