@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#f7f3d0">
 
     <TextView
         android:id="@+id/surahID"
@@ -12,7 +13,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="@string/surah_no"
-        android:textSize="16sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/surahE" />
 
@@ -21,9 +22,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="136dp"
         android:text="@string/surah_name_urdu"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,13 +33,13 @@
         android:id="@+id/surahU"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="136dp"
         android:layout_weight="1"
         android:text="@string/surah_name_english"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.831"
+        app:layout_constraintHorizontal_bias="0.709"
         app:layout_constraintStart_toEndOf="@+id/surahE"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,7 +50,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="@string/nazool"
-        android:textSize="16sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/surahID" />
 
@@ -60,7 +61,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:text="@string/madni"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/nazool"
         app:layout_constraintTop_toBottomOf="@+id/surahID" />
@@ -72,7 +73,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
         android:text="@string/_01"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/surahID"
         app:layout_constraintTop_toBottomOf="@+id/surahE" />
@@ -81,10 +82,13 @@
         android:id="@+id/surahIntro"
         android:layout_width="381dp"
         android:layout_height="221dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
         android:text="@string/urdu_intro"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nazool" />
+        app:layout_constraintTop_toBottomOf="@+id/nazool"
+        app:layout_constraintVertical_bias="0.037" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
