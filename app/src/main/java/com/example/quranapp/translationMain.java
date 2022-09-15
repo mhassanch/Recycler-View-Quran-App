@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ public class translationMain extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_translation_main);
+        ListView l = findViewById(R.id.surahList);
         heading = findViewById(R.id.theading);
         Intent i = this.getIntent();
         int translation = i.getIntExtra("translationId",0);
@@ -32,5 +34,6 @@ public class translationMain extends AppCompatActivity {
         DBHelper dbHelper  = new DBHelper(translationMain.this);
         ArrayList<surahModel>  s =  dbHelper.getAllSurahs();
         surahNameAdapter surahNameAdapter =new surahNameAdapter(this,s,translation);
+        l.setAdapter(surahNameAdapter);
     }
 }

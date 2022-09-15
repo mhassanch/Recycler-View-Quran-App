@@ -194,7 +194,7 @@ public class DBHelper extends SQLiteAssetHelper {
 
     public ArrayList<translationModel> getTranslation(int surahNo, int tId) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM tayah WHERE SurahID = " + surahNo, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM tayah WHERE SuraID = " + surahNo, null);
         ArrayList<translationModel> translation = new ArrayList<translationModel>();
         if (cursor.moveToFirst()) {
             do {
